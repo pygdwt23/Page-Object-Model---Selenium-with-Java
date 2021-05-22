@@ -1,0 +1,9 @@
+<suite name="Test Suite 1">
+    <test name = "Test Name" >
+        <classes>
+            <!--            <class name = "LoginTest" />-->
+            <!--            <class name = "ContactUsTest" />-->
+            <class name = "RegisterTest" />
+        </classes>
+    </test>
+</suite>
