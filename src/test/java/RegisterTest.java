@@ -6,14 +6,18 @@ import org.testng.annotations.*;
 public class RegisterTest {
     public static final WebDriver driver = new ChromeDriver();
 
-    @BeforeSuite
-    public static void setUp() {
+    @BeforeClass
+    public static void startSession() {
         System.setProperty("webdriver.chrome.driver", TestData.CHROME_PATH);
         driver.manage().window().maximize();
+    }
+
+    @BeforeMethod
+    public static void setUp(){
         driver.get(TestData.BASE_URL);
     }
 
-    @Test(testName = "Register Success" )
+    @Test(testName = "Register Success", priority = 0)
     public static void testRegisterSuccess(){
 //     Load Homepage Object
     HomePage homepage = new HomePage(driver);
@@ -32,7 +36,7 @@ public class RegisterTest {
         Assert.assertEquals(infoAccount, TestData.ALERT_REGISTER_SUCCESS);
     }
 
-    @Test(testName = "Register Failed")
+    @Test(testName = "Register Failed", priority = 1)
     public static void testRegisterFailed(){
 //     Load Homepage Object
         HomePage homepage = new HomePage(driver);
@@ -51,7 +55,7 @@ public class RegisterTest {
         Assert.assertEquals(infoAccount, TestData.ALERT_REGISTER_FAILED);
     }
 
-    @Test(testName = "Already Registered")
+    @Test(testName = "Already Registered", priority = 2)
     public static void testAlreadyRegistered(){
 //     Load Homepage Object
         HomePage homepage = new HomePage(driver);
@@ -70,9 +74,13 @@ public class RegisterTest {
         Assert.assertEquals(infoAccount, TestData.ALERT_ALREADY_REGISTERED);
     }
 
-    @AfterSuite
+    @AfterMethod
     public static void tearDown(){
         driver.manage().deleteAllCookies();
+    }
+
+    @AfterClass
+    public static void terminateSession(){
         driver.close();
         driver.quit();
     }
