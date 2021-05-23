@@ -1,4 +1,4 @@
-## Folder Structure
+### Folder Structure
 * src
     * test
         * java
@@ -13,9 +13,10 @@
 * testng.xml
 * .gitignore
 * readme.md
+* chromedriver.exe
 
 
-## Dependencies
+### Dependencies
 * selenium-server
 * testng
 * maven-surefire-plugin
