@@ -1,4 +1,4 @@
-# Folder Structure
+## Folder Structure
 * src
     * test
         * java
@@ -15,7 +15,7 @@
 * readme.md
 
 
-# Dependencies
+## Dependencies
 * selenium-server
 * testng
 * maven-surefire-plugin
